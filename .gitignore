@@ -47,3 +47,14 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# fst files with weather data
+*.fst
+
+LocalCopyDWD/*.*
+
+DWD_tmp/*.*
+
+dgm200.utm32s.gridascii/*.*
+
+*.asc
