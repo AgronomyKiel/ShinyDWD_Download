@@ -148,12 +148,15 @@ tabPanel(
                downloadButton("downloadData", "Download")
              ),
 # grid card with table of weather data
-             grid_card(
-               area = "Daten",
-               title = "Daten",
-               DT::dataTableOutput("TableWetterdaten"),
-               tableOutput("TableWettersummary"))
-           )
+            grid_card(
+              area = "Daten",
+              title = "Daten",
+              div(
+                style = "display: flex; flex-direction: column; gap: 12px;",
+                DT::dataTableOutput("TableWetterdaten", height = "420px"),
+                tableOutput("TableWettersummary")
+              ))
+          )
   ),
 
 ###### Panel Wetterauswertung #######
