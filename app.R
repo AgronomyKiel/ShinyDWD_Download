@@ -185,11 +185,14 @@ tabPanel(
                  choices = seq(as.integer(format(Sys.Date(), "%Y"))-n_years, as.integer(format(Sys.Date(), "%Y")),1)#          year_choices 
                )
              ),
-             grid_card(
-               area = "Plot",
-               title = "Auswertung",
-               plotOutput("plot", click = "plot_click", ))
-           )
+            grid_card(
+              area = "Plot",
+              title = "Auswertung",
+              div(
+                style = "height: 80vh;",
+                plotOutput("plot", click = "plot_click", height = "100%")
+              ))
+          )
   )
 )
 
