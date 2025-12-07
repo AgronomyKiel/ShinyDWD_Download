@@ -148,12 +148,15 @@ tabPanel(
                downloadButton("downloadData", "Download")
              ),
 # grid card with table of weather data
-             grid_card(
-               area = "Daten",
-               title = "Daten",
-               DT::dataTableOutput("TableWetterdaten"),
-               tableOutput("TableWettersummary"))
-           )
+            grid_card(
+              area = "Daten",
+              title = "Daten",
+              div(
+                style = "display: flex; flex-direction: column; gap: 12px;",
+                DT::dataTableOutput("TableWetterdaten", height = "420px"),
+                tableOutput("TableWettersummary")
+              ))
+          )
   ),
 
 ###### Panel Wetterauswertung #######
@@ -185,11 +188,14 @@ tabPanel(
                  choices = seq(as.integer(format(Sys.Date(), "%Y"))-n_years, as.integer(format(Sys.Date(), "%Y")),1)#          year_choices 
                )
              ),
-             grid_card(
-               area = "Plot",
-               title = "Auswertung",
-               plotOutput("plot", click = "plot_click", ))
-           )
+            grid_card(
+              area = "Plot",
+              title = "Auswertung",
+              div(
+                style = "height: 80vh;",
+                plotOutput("plot", click = "plot_click", height = "100%")
+              ))
+          )
   )
 )
 
